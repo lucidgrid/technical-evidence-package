@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: "Technical Evidence Package (TEP) Open Specification"
+message: "If you use this specification, please cite it using the metadata below."
+type: software
+authors:
+  - name: "LucidGrid Technologies"
+    website: "https://lucidgrid.tech"
+    email: "hello@lucidgrid.tech"
+repository-code: "https://github.com/lucidgrid/technical-evidence-package"
+url: "https://lucidgrid.github.io/technical-evidence-package"
+abstract: >
+  The Technical Evidence Package (TEP) is an open specification for packaging
+  structured authorship evidence in AI-assisted media production pipelines.
+  TEP defines a verifiable, auditable format for documenting the human creative
+  decisions embedded in AI-assisted works, supporting copyright compliance across
+  major jurisdictions.
+keywords:
+  - authorship-evidence
+  - ai-assisted-production
+  - vfx
+  - copyright-compliance
+  - provenance
+  - open-specification
+  - media-production
+license: MIT
+version: "1.0.0"
+date-released: "2026-05-28"
