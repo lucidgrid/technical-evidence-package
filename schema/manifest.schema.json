@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lucidgrid/technical-evidence-package/blob/main/schema/manifest.schema.json",
+  "title": "TEP MANIFEST.json",
+  "description": "JSON Schema for the MANIFEST.json package integrity contract. Schema version v1.9.0.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "package_id",
+    "created_at",
+    "creator",
+    "project",
+    "assets",
+    "evidence_completeness_score",
+    "hitl_summary",
+    "contents"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of the TEP schema. Current production version: 1.9.0."
+    },
+    "package_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Version-4 UUID uniquely identifying this TEP package."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 UTC timestamp of package creation."
+    },
+    "creator": {
+      "type": "object",
+      "required": ["name", "role", "system"],
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "system": {
+          "type": "string",
+          "description": "Generating system identifier, e.g. 'LucidGrid v1.9.0'."
+        }
+      },
+      "additionalProperties": false
+    },
+    "project": {
+      "type": "object",
+      "required": ["id", "name", "created_at"],
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "name": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["asset_id", "asset_type", "files"],
+        "properties": {
+          "asset_id": { "type": "string", "format": "uuid" },
+          "asset_type": {
+            "type": "string",
+            "enum": ["image", "video", "audio", "3d"]
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["path", "sha256"],
+              "properties": {
+                "path": { "type": "string" },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$",
+                  "description": "Lowercase hex-encoded SHA-256 hash of the file."
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "evidence_completeness_score": {
+      "type": "object",
+      "required": ["status", "score", "denominator"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["green", "amber", "red"]
+        },
+        "score": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "denominator": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "hitl_summary": {
+      "type": "object",
+      "required": [
+        "observed_truth_count",
+        "contextual_truth_count",
+        "declared_truth_count",
+        "zero_evidence_asset_count"
+      ],
+      "properties": {
+        "observed_truth_count": { "type": "integer", "minimum": 0 },
+        "contextual_truth_count": { "type": "integer", "minimum": 0 },
+        "declared_truth_count": { "type": "integer", "minimum": 0 },
+        "zero_evidence_asset_count": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "contents": {
+      "type": "array",
+      "description": "SHA-256 manifest for every file in the package root.",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": { "type": "string" },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "production_context": {
+      "type": "object",
+      "description": "Optional VES production context. Omit entirely when not applicable — do not include as empty object.",
+      "properties": {
+        "show_id": { "type": "string" },
+        "episode": { "type": "string" },
+        "sequence": { "type": "string" },
+        "scene": { "type": "string" },
+        "shot_id": { "type": "string" },
+        "version_name": { "type": "string" },
+        "task": { "type": "string" },
+        "vendor_id": { "type": "string" },
+        "version_number": { "type": "string" },
+        "omc_creative_work_id": {
+          "type": "string",
+          "pattern": "^urn:movielabs:creative-work:"
+        },
+        "omc_asset_id": {
+          "type": "string",
+          "pattern": "^urn:movielabs:asset:"
+        },
+        "omc_version_id": {
+          "type": "string",
+          "pattern": "^urn:movielabs:version:"
+        },
+        "production_management_system": {
+          "type": "string",
+          "enum": ["shotgrid", "flow", "ftrack", "custom"]
+        },
+        "external_shot_ref": { "type": "string", "format": "uri" }
+      },
+      "additionalProperties": false
+    },
+    "ves_taxonomy_enabled": {
+      "type": "boolean",
+      "description": "When true, activates VES-conditional fields across the package. Omit for non-VES productions."
+    },
+    "fdl_link": {
+      "type": "string",
+      "description": "ASC Framing Decision List URN. Format: urn:asc:fdl:{id}"
+    },
+    "production_ref": { "type": "string" },
+    "ves_alignment_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "paradigm_breakdown": {
+      "type": "object",
+      "description": "Aggregate paradigm distribution across all assets in the package.",
+      "properties": {
+        "proprietary_count": { "type": "integer", "minimum": 0 },
+        "open_weights_count": { "type": "integer", "minimum": 0 },
+        "open_source_count": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

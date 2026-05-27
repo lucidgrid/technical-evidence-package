@@ -1,0 +1,17 @@
+{
+  "tool_name": "ComfyUI (Local)",
+  "tool_slug": "comfyui",
+  "category": "image",
+  "vendor": "Comfy Org",
+  "paradigm": "open_weights",
+  "indemnification_status": "no_indemnity",
+  "indemnification_last_verified": "2026-04-25",
+  "indemnification_source_url": "https://github.com/comfyanonymous/ComfyUI/blob/master/LICENSE",
+  "training_data_status": "undisclosed",
+  "detection_mechanism": "localhost_api",
+  "url_patterns": ["127.0.0.1:8188", "localhost:8188"],
+  "supported_hitl_tags": ["prompt_engineering", "seed_selection", "parameter_tuning", "workflow_configuration", "model_selection", "prompt_iteration", "output_curation", "inpainting_mask", "regional_prompt"],
+  "capture_type": "automated",
+  "native_c2pa": "unsupported",
+  "notes": "ComfyUI is a runtime, not a model. Paradigm depends on which checkpoint is loaded. Lookup specific checkpoint in the ComfyUI checkpoint registry for per-model classification. Training data status for all checkpoints: undisclosed or contested. Studio bears full IP liability for all outputs. Automated workflow capture via /api/prompt interception and LiteGraph graph reader."
+}

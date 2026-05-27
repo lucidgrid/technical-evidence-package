@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.9.0",
+  "asset_id": "550e8400-e29b-41d4-a716-446655440001",
+  "asset_type": "image",
+  "ai_tool": "ComfyUI (Local)",
+  "tool_slug": "comfyui",
+  "tool_version": "0.3.7",
+  "paradigm_classification": "open_weights",
+  "paradigm_confidence": "filename_match",
+  "lifecycle_stage_number": 2,
+  "modification_level": "generated",
+  "capture_method": "api_capture",
+  "input_description": "Text-to-image generation using FLUX.1 dev checkpoint. Prompt: 'neon city street at dusk, rain-slicked pavement, volumetric light, film grain, anamorphic lens flare, cinematic'",
+  "output_description": "1024x1024 PNG image. Seed 3847291056 selected intentionally after reviewing 12 generations. Final output chosen for composition and light quality.",
+  "timestamp_captured": "2026-05-14T11:23:45Z",
+  "phash": "a4f3b2c1d8e7f604",
+  "human_actions": [
+    {
+      "tag": "prompt_engineering",
+      "evidence_type": "machine_corroborated",
+      "captured_value": "neon city street at dusk, rain-slicked pavement, volumetric light, film grain, anamorphic lens flare, cinematic"
+    },
+    {
+      "tag": "model_selection",
+      "evidence_type": "machine_corroborated",
+      "captured_value": "flux1-dev-Q8_0.gguf"
+    },
+    {
+      "tag": "seed_selection",
+      "evidence_type": "machine_corroborated",
+      "captured_value": "3847291056"
+    },
+    {
+      "tag": "prompt_iteration",
+      "evidence_type": "contextually_inferred",
+      "captured_value": null
+    },
+    {
+      "tag": "output_curation",
+      "evidence_type": "contextually_inferred",
+      "captured_value": null
+    }
+  ],
+  "hitl_tags": [
+    "prompt_engineering",
+    "model_selection",
+    "seed_selection",
+    "prompt_iteration",
+    "output_curation"
+  ],
+  "user_notes": "12 generations reviewed. Seeds 1092847, 2938471, 3847291056 shortlisted. Final seed selected for the light break across the pavement in the lower third.",
+  "browser_metadata": {
+    "url": "127.0.0.1:8188",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+  },
+  "cinematic_declaration": null
+}

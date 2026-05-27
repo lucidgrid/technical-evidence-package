@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.9.0",
+  "package_id": "a7f3c291-84b2-4e1d-9f6a-3c5d7e8b2a04",
+  "created_at": "2026-05-15T14:32:00Z",
+  "creator": {
+    "name": "Alex Rivera",
+    "role": "vfx_supervisor",
+    "system": "LucidGrid v1.9.0"
+  },
+  "project": {
+    "id": "d4e9f712-3a1b-4c8e-b2f5-6a7d9c0e1f23",
+    "name": "Neon City Promo — AI Assets v1",
+    "created_at": "2026-05-10T09:00:00Z"
+  },
+  "assets": [
+    {
+      "asset_id": "550e8400-e29b-41d4-a716-446655440001",
+      "asset_type": "image",
+      "files": [
+        {
+          "path": "assets/550e8400-e29b-41d4-a716-446655440001/metadata.json",
+          "sha256": "b94f6f125c79e3a5d9d9b73e1c8b97d4c8a7f2e1d9c3b5a6e4f7d2c1b8a9f0e3"
+        },
+        {
+          "path": "assets/550e8400-e29b-41d4-a716-446655440001/screenshot.png",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    }
+  ],
+  "evidence_completeness_score": {
+    "status": "amber",
+    "score": 0.71,
+    "denominator": 7
+  },
+  "hitl_summary": {
+    "observed_truth_count": 3,
+    "contextual_truth_count": 2,
+    "declared_truth_count": 2,
+    "zero_evidence_asset_count": 0
+  },
+  "contents": [
+    {
+      "path": "MANIFEST.json",
+      "sha256": "c2a5f8e3d1b4a7f9e6c3d0b2a5f7e4c1d8a3f6b9e2c5d7a0b4f1e8c3d6a9b2f5"
+    },
+    {
+      "path": "cryptographic_proof.json",
+      "sha256": "f1e4b7d2a5c8f3e6b9d2a5c8f3e6b9d2a5c8f3e6b9d2a5c8f3e6b9d2a5c8f3e6"
+    },
+    {
+      "path": "attestation.json",
+      "sha256": "a2b5c8d1e4f7a2b5c8d1e4f7a2b5c8d1e4f7a2b5c8d1e4f7a2b5c8d1e4f7a2b5"
+    },
+    {
+      "path": "indemnification_disclosure.json",
+      "sha256": "d3e6a9b2c5f8d3e6a9b2c5f8d3e6a9b2c5f8d3e6a9b2c5f8d3e6a9b2c5f8d3e6"
+    },
+    {
+      "path": "assets/550e8400-e29b-41d4-a716-446655440001/metadata.json",
+      "sha256": "b94f6f125c79e3a5d9d9b73e1c8b97d4c8a7f2e1d9c3b5a6e4f7d2c1b8a9f0e3"
+    },
+    {
+      "path": "assets/550e8400-e29b-41d4-a716-446655440001/screenshot.png",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

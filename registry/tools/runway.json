@@ -1,0 +1,17 @@
+{
+  "tool_name": "Runway",
+  "tool_slug": "runway",
+  "category": "video",
+  "vendor": "Runway AI Inc.",
+  "paradigm": "proprietary",
+  "indemnification_status": "no_indemnity",
+  "indemnification_last_verified": "2026-04-25",
+  "indemnification_source_url": "https://runwayml.com/terms",
+  "training_data_status": "undisclosed",
+  "detection_mechanism": "browser",
+  "url_patterns": ["runwayml.com", "app.runwayml.com"],
+  "supported_hitl_tags": ["prompt_engineering", "parameter_tuning", "output_curation", "prompt_iteration"],
+  "capture_type": "assisted_manual",
+  "native_c2pa": "unsupported",
+  "notes": "Runway does not provide IP indemnification. Studio bears full liability for outputs. No training data transparency. Color space parameters (ACES IDT/ODT) captured where available in Gen-3 advanced settings."
+}

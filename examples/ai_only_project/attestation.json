@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.9.0",
+  "project_id": "d4e9f712-3a1b-4c8e-b2f5-6a7d9c0e1f23",
+  "attestation_id": "c9d2e5f8-a1b4-4c7e-b0d3-6a9f2c5e8b1d",
+  "attestor": {
+    "name": "Alex Rivera",
+    "role": "vfx_supervisor",
+    "ip_address_hash": "8f3a9d2c1b7e4f0a6c5d8b2e9f1a4c7d0b3e6f9a2c5d8b1e4f7a0c3d6e9b2f5"
+  },
+  "attestation_timestamp": "2026-05-15T14:31:00Z",
+  "scope": {
+    "asset_ids": ["550e8400-e29b-41d4-a716-446655440001"],
+    "hitl_tags_claimed": [
+      "prompt_engineering",
+      "model_selection",
+      "seed_selection",
+      "prompt_iteration",
+      "output_curation"
+    ]
+  },
+  "attestation_statement": "I, Alex Rivera, VFX Supervisor, attest that the AI-generated assets listed in this package were produced under my creative direction. All prompts were authored by me or under my direct supervision. Seed values were intentionally selected. Multiple generation iterations were reviewed before final asset selection. No assets in this package were used without human creative review.",
+  "signature_method": "session_authenticated"
+}

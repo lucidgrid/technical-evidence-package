@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.9.0",
+  "package_id": "a7f3c291-84b2-4e1d-9f6a-3c5d7e8b2a04",
+  "generated_at": "2026-05-15T14:32:01Z",
+  "asset_hashes": [
+    {
+      "asset_id": "550e8400-e29b-41d4-a716-446655440001",
+      "phash": "a4f3b2c1d8e7f604",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "captured_at": "2026-05-14T11:23:45Z"
+    }
+  ],
+  "tep_sha256": "7d4f1e8c3b6a9f2d5e8b1c4a7f0d3e6b9c2f5a8d1e4b7c0f3a6d9b2e5f8c1a4",
+  "ots_proof": "AE4f2Qo3R7sL9mK1hN6pX8vG0cJyWdBzTnUiE5oAr2Fs4Ql7MtHwCxPbZuYkD3..."
+}

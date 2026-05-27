@@ -1,0 +1,245 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lucidgrid/technical-evidence-package/blob/main/schema/metadata.schema.json",
+  "title": "TEP Asset metadata.json",
+  "description": "JSON Schema for the per-asset metadata.json HITL evidence record. Schema version v1.9.0.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "asset_id",
+    "asset_type",
+    "ai_tool",
+    "tool_slug",
+    "paradigm_classification",
+    "paradigm_confidence",
+    "lifecycle_stage_number",
+    "modification_level",
+    "capture_method",
+    "input_description",
+    "output_description",
+    "timestamp_captured",
+    "phash",
+    "human_actions",
+    "hitl_tags",
+    "browser_metadata"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of the TEP schema. Must match MANIFEST.json schema_version."
+    },
+    "asset_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Version-4 UUID. Must match the asset_id in MANIFEST.json and the parent directory name."
+    },
+    "asset_type": {
+      "type": "string",
+      "enum": ["image", "video", "audio", "3d"]
+    },
+    "ai_tool": {
+      "type": "string",
+      "description": "Human-readable tool name, e.g. 'ComfyUI (Local)'."
+    },
+    "tool_slug": {
+      "type": "string",
+      "description": "Machine-readable slug. Must match a slug in the tool registry.",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "tool_version": {
+      "type": ["string", "null"],
+      "description": "Tool version string if known; null if not captured."
+    },
+    "paradigm_classification": {
+      "type": "string",
+      "enum": ["proprietary", "open_weights", "open_source"]
+    },
+    "paradigm_confidence": {
+      "type": "string",
+      "enum": ["verified", "filename_match", "low"],
+      "description": "Confidence level of the paradigm classification. 'verified' = registry lookup. 'filename_match' = checkpoint filename pattern. 'low' = fallback."
+    },
+    "lifecycle_stage_number": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Pipeline stage number where the asset was captured. Stages are project-defined."
+    },
+    "modification_level": {
+      "type": "string",
+      "enum": ["generated", "edited", "composited"],
+      "description": "How much human modification occurred after AI generation."
+    },
+    "capture_method": {
+      "type": "string",
+      "enum": ["api_capture", "file_extraction", "manual_upload"],
+      "description": "How the asset entered the LucidGrid system."
+    },
+    "input_description": {
+      "type": "string",
+      "description": "Human-readable description of the inputs provided to the AI tool."
+    },
+    "output_description": {
+      "type": "string",
+      "description": "Human-readable description of the AI-generated output."
+    },
+    "timestamp_captured": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 UTC timestamp when the asset was captured."
+    },
+    "phash": {
+      "type": "string",
+      "description": "64-bit perceptual hash (DCT method). Lowercase hex string.",
+      "pattern": "^[a-f0-9]{16}$"
+    },
+    "human_actions": {
+      "type": "array",
+      "description": "Array of HITL action records, one per claimed creative action.",
+      "items": {
+        "type": "object",
+        "required": ["tag", "evidence_type"],
+        "properties": {
+          "tag": {
+            "type": "string",
+            "enum": [
+              "prompt_engineering",
+              "seed_selection",
+              "parameter_tuning",
+              "regional_prompt",
+              "inpainting_mask",
+              "workflow_configuration",
+              "model_selection",
+              "prompt_iteration",
+              "output_curation",
+              "post_generation_edit",
+              "compositing_integration",
+              "project_supervision"
+            ]
+          },
+          "evidence_type": {
+            "type": "string",
+            "enum": ["machine_corroborated", "contextually_inferred", "human_attested"]
+          },
+          "captured_value": {
+            "type": ["string", "null"],
+            "description": "The specific value captured for this action. Null for human_attested tags."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "hitl_tags": {
+      "type": "array",
+      "description": "Flat list of HITL tag strings. Must match the tags in human_actions.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "prompt_engineering",
+          "seed_selection",
+          "parameter_tuning",
+          "regional_prompt",
+          "inpainting_mask",
+          "workflow_configuration",
+          "model_selection",
+          "prompt_iteration",
+          "output_curation",
+          "post_generation_edit",
+          "compositing_integration",
+          "project_supervision"
+        ]
+      }
+    },
+    "user_notes": {
+      "type": ["string", "null"],
+      "description": "Free-text notes from the user. Null if not provided."
+    },
+    "browser_metadata": {
+      "type": "object",
+      "required": ["url"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "URL of the page where the asset was captured. 'local' for localhost capture."
+        },
+        "user_agent": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "cinematic_declaration": {
+      "description": "Optional cinematic parameter declaration. Null when not declared.",
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": [
+            "parameter_origin",
+            "cinematic_intent",
+            "prompt_excerpt",
+            "declared_by",
+            "declared_at"
+          ],
+          "properties": {
+            "shot_type": {
+              "type": "string",
+              "enum": ["wide", "medium", "close", "extreme_close", "insert"]
+            },
+            "camera_movement": {
+              "type": "string",
+              "enum": ["static", "dolly", "pan", "tilt", "crane", "handheld", "zoom"]
+            },
+            "focal_length_range": {
+              "type": "string",
+              "enum": ["wide", "normal", "telephoto", "extreme_telephoto"]
+            },
+            "depth_of_field": {
+              "type": "string",
+              "enum": ["shallow", "medium", "deep"]
+            },
+            "color_space": { "type": ["string", "null"] },
+            "dynamic_range": { "type": ["string", "null"] },
+            "lighting_intent": { "type": ["string", "null"] },
+            "parameter_origin": {
+              "type": "string",
+              "enum": [
+                "human_specified",
+                "human_directed_ai_executed",
+                "ai_generated",
+                "mixed"
+              ]
+            },
+            "cinematic_intent": { "type": "string" },
+            "prompt_excerpt": { "type": "string" },
+            "fdl_link": {
+              "type": ["string", "null"],
+              "description": "ASC FDL URN. Null for AI-only productions."
+            },
+            "declared_by": { "type": "string" },
+            "declared_at": { "type": "string", "format": "date-time" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "iscc_meta": {
+      "type": "object",
+      "description": "Optional ISCC content fingerprint block (ISO 24138:2024). Present only when ISCC was computed at capture time.",
+      "properties": {
+        "iscc": { "type": "string" },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "_lucidgrid": {
+          "type": "object",
+          "description": "LucidGrid extension fields within iscc_meta.",
+          "properties": {
+            "tool_paradigm": { "type": "string" },
+            "paradigm_confidence": { "type": "string" }
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
