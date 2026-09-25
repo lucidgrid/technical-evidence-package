@@ -97,7 +97,9 @@ Full alignment table: [`spec/VES_VOCABULARY_ALIGNMENT.md`](spec/VES_VOCABULARY_A
 
 ## License
 
-[CC BY 4.0](LICENSE). Any tool may implement the format. Attribution required. LucidGrid retains authorship of the specification documents.
+Dual-licensed — see [LICENSE](LICENSE):
+- Code, scripts, and executable programs: **MIT License**.
+- Documentation, templates, specs, and evidence artifacts: **CC BY 4.0**. Any tool may implement the format. Attribution required. LucidGrid Information Technology Solutions retains authorship of the specification documents.
 
 ---
 
