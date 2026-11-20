@@ -116,6 +116,6 @@ ajv validate -s schema/metadata.schema.json -d assets/{asset_uuid}/metadata.json
 
 - `spec/TEP_FORMAT.md` — full format specification
 - `spec/HITL_EVIDENCE_TAXONOMY.md` — the twelve HITL tags and their evidence types
-- `examples/ai_only_project/` — a complete annotated example
+- [`examples/`](../../examples/) — the example package is withdrawn; a verifiable one will ship with the verifier
 - `registry/TOOL_REGISTRY.md` — all supported tools, their paradigm classifications, and indemnification status
 - `docs/quickstart/FOR_LEGAL_PROFESSIONALS.md` — the legal audience version of this document

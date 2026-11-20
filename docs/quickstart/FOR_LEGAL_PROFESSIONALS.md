@@ -137,5 +137,5 @@ Open-weights models require more conservative E&O positioning. A studio using Co
 - `spec/HITL_EVIDENCE_TAXONOMY.md` — the twelve creative action types and their evidence classification logic
 - `spec/EVIDENCE_TYPES.md` — detailed evidence type definitions and evidentiary weight analysis
 - `spec/EXCLUSION_TAXONOMY.md` — exclusion categories (assets explicitly excluded from TEP coverage)
-- `examples/ai_only_project/` — a complete annotated example TEP
+- [`examples/`](../../examples/) — the example package is withdrawn; a verifiable one will ship with the verifier
 - `registry/TOOL_REGISTRY.md` — all supported tools and their indemnification status
