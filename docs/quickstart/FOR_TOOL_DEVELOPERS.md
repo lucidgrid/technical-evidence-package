@@ -71,12 +71,7 @@ To contribute a detector entry for your tool: [`registry/CONTRIBUTING_DETECTORS.
 
 ## Reference examples
 
-A worked example TEP is available at [`examples/ai_only_project/`](../../examples/ai_only_project/). It demonstrates:
-
-- A conformant `MANIFEST.json` with ECS and HITL summary
-- A `metadata.json` with mixed evidence tiers (`machine_corroborated` and `contextually_inferred`)
-- A signed `attestation.json`
-- An `indemnification_disclosure.json` covering multiple tools
+The example package is withdrawn (see [`examples/`](../../examples/)); a verifiable one will ship with the verifier.
 
 LucidGrid is the reference implementation. TEPs produced by LucidGrid conform to this specification at schema version v1.9.0.
 

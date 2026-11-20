@@ -31,7 +31,7 @@ The format is grounded in five architectural commitments documented in [`CONSTIT
 | [`spec/VES_VOCABULARY_ALIGNMENT.md`](../../spec/VES_VOCABULARY_ALIGNMENT.md) | Vocabulary alignment to VES, MovieLabs OMC, and Netflix VFX naming |
 | [`schema/manifest.schema.json`](../../schema/manifest.schema.json) | Formal JSON Schema v1.9.0 for MANIFEST.json |
 | [`schema/metadata.schema.json`](../../schema/metadata.schema.json) | Formal JSON Schema v1.9.0 for per-asset metadata.json |
-| [`examples/ai_only_project/`](../../examples/ai_only_project/) | Worked example TEP with real field values |
+| [`examples/`](../../examples/) | Example package withdrawn; a verifiable one will ship with the verifier |
 
 ---
 
